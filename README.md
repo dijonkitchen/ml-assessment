@@ -47,3 +47,10 @@ poetry add <dependency>
 poetry run python algorithms/main.py
 ```
 All tests passed in 0.9625127500039525 seconds!
+
+#### APIs
+
+```
+poetry run python apis/main.py
+```
+Navigate to: http://0.0.0.0:8000/docs#/default/predict_predict_post

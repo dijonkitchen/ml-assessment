@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "ml-assessment"
+version = "0.1.0"
+description = ""
+authors = ["JC (Jonathan Chen) <11434205+dijonkitchen@users.noreply.github.com>"]
+readme = "README.md"
+packages = [
+    { include = "algorithms" },
+    { include = "apis" },
+    { include = "models" },
+]
+
+[tool.poetry.dependencies]
+python = "3.10.11"
+fastapi = "^0.104.1"
+pydantic = "^2.5.2"
+uvicorn = {extras = ["standard"], version = "^0.24.0.post1"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
