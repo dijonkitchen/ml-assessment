@@ -64,4 +64,5 @@ while also making it stricter to note that the predictions actually have a `labe
 I would more clearly express this in the API documentation
 so that clients could understand this more as they initially develop with the API.
 
-See [./main.py](./main.py) for these and some minor edits.
+See [./main.py](./main.py) for these, some minor edits,
+and tests to automatically ensure these are enforced in continuous integration.

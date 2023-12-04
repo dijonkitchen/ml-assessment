@@ -3,16 +3,13 @@ from fakerpc import rpc1, rpc2
 from fastapi import FastAPI
 from pydantic import BaseModel
 
+from apis.fakerpc import Prediction
+
 app = FastAPI()
 
 
 class PredRequest(BaseModel):
     message: str
-
-
-class Prediction(BaseModel):
-    label: str
-    weight: float
 
 
 class PredResponse(BaseModel):
@@ -32,12 +29,12 @@ def predict(req: PredRequest) -> PredResponse:
     try:
         pred = rpc2(req.message)
 
-        return {
-            "status": "ok",
-            "prediction": sorted(pred["hits"], key=lambda x: x["weight"], reverse=True),
-        }
+        return PredResponse(
+            status="ok",
+            prediction=sorted(pred.hits, key=lambda x: x.weight, reverse=True),
+        )
     except Exception:
-        return {"status": "error", "prediction": []}
+        return PredResponse(status="error", prediction=[])
 
 
 if __name__ == "__main__":
